@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +128,8 @@ EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 # Fix from http://stackoverflow.com/questions/35388637/runtimeerror-model-class-django-contrib-sites-models-site-doesnt-declare-an-ex
 SITE_ID = 1
+
+# Static files directory for Bootstrap
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

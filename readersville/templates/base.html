@@ -1,14 +1,61 @@
 {% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html>
     <head>
-            <title>Reader's Ville: Read to your heart's content</title>
+    	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+        <link href="{% static 'bootstrap/css/custom.css' %}" rel="stylesheet" media="screen">
+        <title>Reader's Ville: Read to your heart's content</title>
     </head>
+
             <body>
 
-                {% block content %}
-                {% endblock %}
+                <nav class="navbar">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="#"><img src="{% static 'images/logo1.png' %}"></a>
+                    </div>
+                    
+                    <form class="navbar-form navbar-left">
+                      <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="Browse Books">
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                      </div>
+                    </form>
 
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                            <li><a href="#"><span class="glyphicon glyphicon-bell"></span> Notifications</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-book"></span> Library</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        {% else %}
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
+                                <div class="dropdown-menu" style="padding:17px;">
+                                    {% block content %}
+                                    {% endblock %}
+                                </div>
+                            </li>
+                        {% endif %}
+                    </ul>
+
+                  </div>
+                </nav>
+
+                <div class="jumbotron">
+                    <div class="container-fluid">
+                    <div class="pull-right" id="login-form">
+
+                    </div>    
+                    </div>
+                </div>
+            
+
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
             </body>
 </html>
