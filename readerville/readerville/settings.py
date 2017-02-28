@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'crispy_forms'
     'core',
 ]
 
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'readersville.urls'
+ROOT_URLCONF = 'readerville.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'readersville.wsgi.application'
+WSGI_APPLICATION = 'readerville.wsgi.application'
 
 
 # Database
@@ -133,3 +134,6 @@ SITE_ID = 1
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# Crispy Template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

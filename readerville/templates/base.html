@@ -1,5 +1,7 @@
-{% load staticfiles %}
 {% load static %}
+{% load i18n %}
+{#{% load crispy_forms_tags %}#}
+
 
 <!DOCTYPE html>
 <html>
@@ -33,8 +35,21 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                                 <div class="dropdown-menu" style="padding:17px;">
-                                    {% block content %}
-                                    {% endblock %}
+
+                                    <form method="post" action="{% url 'auth_login' %}">{% csrf_token %}
+                                    <div class="form-group">
+                                        {{ login_form.username }}
+                                        {{ login_form.password }}
+                                    </div>
+
+
+                                    <p>{% blocktrans %}<a href="{{ auth_pwd_reset_url }}">Forgot</a> your password?
+                                        <a href="{{ register_url }}">Need an account</a>?{% endblocktrans %}</p>
+
+                                    <input type="submit" value="{% trans "login" %}" />
+                                    <input type="hidden" name="next" value="{{ next }}" />
+                                    </form>
+
                                 </div>
                             </li>
                         {% endif %}
