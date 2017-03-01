@@ -1,0 +1,68 @@
+body {
+    min-height: 2000px;
+    padding-top: 70px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    height: 30px;
+}
+
+.nav.navbar.navbar-right > li > a > span {
+    padding-top: 15px !important;
+}
+
+.navbar-brand {
+    padding-top: 0px !important;
+}
+
+.navbar {
+    min-height: 30px !important;
+}
+
+#navbar {
+    background-color: #37E16F;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: grey;
+}
+
+.glyphicon {
+    font-size: 1.5em;
+}
+
+.form-control {
+    -webkit-border-radius: 4;
+    -moz-border-radius: 4;
+    border-radius: 4;
+}
+
+.jumbotron {
+    position: relative;
+    /*background: #000 center center;*/
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#login-form {
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgba(54, 25, 25, .8);
+}
+
+#searchBar {
+    width: 400px;
+}
+
+.dropdown-menu {
+    padding: 17px;
+}
