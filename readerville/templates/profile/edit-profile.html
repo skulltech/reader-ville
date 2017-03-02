@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="/your-name/" method="post">
+<form action="{% url 'edit_profile' %}" method="post">
     {% csrf_token %}
     {{ profile_form }}
     <input type="submit" value="Submit" />

@@ -25,9 +25,11 @@ body {
     background-color: #37E16F;
 }
 
+/*
 a {
     color: white;
 }
+*/
 
 a:hover {
     color: grey;
@@ -52,12 +54,12 @@ a:hover {
     overflow: hidden;
 }
 
-#login-form {
+/*#login-form {
     color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+    background: rgb(54, 25, 25); !* Fall-back for browsers that don't support rgba *!
     background: rgba(54, 25, 25, .8);
-}
+}*/
 
 #searchBar {
     width: 400px;

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from .forms import ProfileForm, LoginForm
+from .models import UserProfile
 
 # Create your views here.
 
@@ -19,10 +20,13 @@ def view_profile(request):
 
 @login_required(login_url='accounts/login/')
 def edit_profile(request):
-    form = ProfileForm(request.POST or None)
-    if form.is_valid():
-        profile = form.save(commit=False)
-        profile.user = request.user
-        profile.save()
+    try:
+        profile = request.user.userprofile
+    except UserProfile.DoesNotExist:
+        profile = UserProfile(user=request.user)
 
-    return render(request, 'profile/edit-profile.html', context={"profile_form": form})
+    profile_form = ProfileForm(request.POST or None, instance=profile)
+    if profile_form.is_valid():
+        profile_form.save()
+
+    return render(request, 'profile/edit-profile.html', context={"profile_form": profile_form})

@@ -32,6 +32,7 @@
                 <li><a href="#"><span class="glyphicon glyphicon-book"></span>Library</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
             {% else %}
+{% comment %}
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login</a>
                     <div class="dropdown-menu">
@@ -40,6 +41,9 @@
                             <a href="{{ register_url }}">Need an account</a>?</p>
                     </div>
                 </li>
+{% endcomment %}
+                <li><a href="/accounts/login/">Login</a></li>
+                <li><a href="/accounts/register/">Register</a></li>
             {% endif %}
         </ul>
     </div>
@@ -48,6 +52,13 @@
 <div class="jumbotron" style="background-image: url({% static 'images/jumbotron.jpg' %});">
     <div class="container-fluid">
     </div>
+</div>
+
+<div class="container">
+<div class="center-block" style="width: 50%;">
+    {% block content %}
+    {% endblock %}
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
