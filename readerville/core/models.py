@@ -18,6 +18,8 @@ class Book(models.Model):
     name = models.CharField(max_length=50)
     author = models.CharField(max_length=50, blank=True, null=True)
     isbn = models.CharField(max_length=13, blank=True, null=True)
+    description = models.CharField(max_length=50, blank=True, null=True)
+    genre = models.ForeignKey('Genre', default=1)
     library = models.ForeignKey('Library')
 
     def __str__(self):
@@ -55,8 +57,5 @@ class Library(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
     instance.userprofile.save()
+

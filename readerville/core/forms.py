@@ -1,6 +1,6 @@
 from django import forms
 from django.urls import reverse
-from .models import UserProfile, Genre
+from .models import UserProfile, Genre, Book
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -26,3 +26,17 @@ class LoginForm(forms.Form):
         self.helper.form_action = reverse('auth_login')
 
         self.helper.add_input(Submit('submit', 'Login'))
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        exclude = ['library']
+
+    def __init__(self, *args, **kwargs):
+        super(BookForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'bookForm'
+        self.helper.form_method = 'post'
+        self.helper.form_action = reverse('view_library')
+
+        self.helper.add_input(Submit('submit', 'Add Book'))

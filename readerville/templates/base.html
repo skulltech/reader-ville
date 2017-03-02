@@ -29,8 +29,8 @@
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
                 <li><a href="#"><span class="glyphicon glyphicon-bell"></span>Notifications</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-book"></span>Library</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                <li><a href="/accounts/library/"><span class="glyphicon glyphicon-book"></span>Library</a></li>
+                <li><a href="/accounts/profile/"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
             {% else %}
 {% comment %}
                 <li class="dropdown">
