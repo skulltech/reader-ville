@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='book',
-            name='library',
+            name='libraries',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.Library'),
         ),
     ]

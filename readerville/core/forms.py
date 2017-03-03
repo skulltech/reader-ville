@@ -30,7 +30,7 @@ class LoginForm(forms.Form):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        exclude = ['library']
+        exclude = ['libraries']
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
